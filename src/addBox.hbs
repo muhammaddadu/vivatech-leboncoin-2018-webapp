@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Webpack</title>
+</head>
+
+<body ng-app="application">
+
+    <div ng-controller="addBox" class="addBox">
+        <div ng-if="ctrl.isLoading">
+    {{> header-transaction}}
+    {{> spiner-transaction}}    
+    {{> footer-transaction}}    
+        </div>
+
+            {{> header}}
+        <div ng-if="!ctrl.isLoading && !ctrl.qrcode" class="register_box">
+            <h1 class="add_box_h1">Register Your Box</h1>
+            <div class="alert alert-success"
+                 ng-if="ctrl.info">
+                <strong>SUCCESS!</strong> <span>\{{ctrl.info}}</span>
+            </div>
+            <div class="alert alert-danger"
+                 ng-if="ctrl.error">
+                <strong>ERROR!</strong> <span>\{{ctrl.error}}</span>
+            </div>
+
+            <form ng-submit="::ctrl.submitForm()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Price Per Day</label>
+                    ¢ <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="1" ng-model="ctrl.form.pricePerDay">
+                </div>
+                
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Product Dimension</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="4 x 4 dimension" ng-model="ctrl.form.dimensions">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1" class="box_location">Location</label>
+                    <img src="http://maps.googleapis.com/maps/api/staticmap?center=paris+expo+porte+de+versailles&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%48.8307,2.2870&key=AIzaSyCVPO8HNf5UOACtEdZkTGReTsFzw1uwKqk" width="300px" height="300" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Register Box</button>
+            </form>
+        </div>
+
+        <div ng-if="!ctrl.isLoading && ctrl.qrcode">
+            <p>Please print this and place on your box.</p>
+            <br />
+            <br />
+            <img src="\{{ctrl.qrcode}}"  width="300" height="300" />
+        </div>
+    </div>
+</body>
+</html>

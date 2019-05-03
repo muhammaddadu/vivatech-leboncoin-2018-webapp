@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Webpack</title>
+</head>
+
+<body ng-app="application">
+    {{> header}}
+
+    <div ng-controller="addProduct" class="add_product">
+        <div ng-if="ctrl.isLoading" class="addBox">
+            {{> header-transaction}}
+            {{> spiner-transaction}}    
+            {{> footer-transaction}}    
+        </div>
+
+        <div ng-if="!ctrl.isLoading && !ctrl.itemAdded">
+        <div class="addProduct_wrapper">
+            <h1>Add Product</h1>
+
+            <div class="alert alert-success"
+                 ng-if="ctrl.info">
+                <strong>SUCCESS!</strong> <span>\{{ctrl.info}}</span>
+            </div>
+            <div class="alert alert-danger"
+                 ng-if="ctrl.error">
+                <strong>ERROR!</strong> <span>\{{ctrl.error}}</span>
+            </div>
+
+            <form ng-submit="::ctrl.submitForm()">
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" ng-model="ctrl.form.name">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Price</label>
+                    ¢ <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="1" ng-model="ctrl.form.price">
+                </div>
+                
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Description</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="" ng-model="ctrl.form.description">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Location</label>
+                    <img src="http://maps.googleapis.com/maps/api/staticmap?center=paris+expo+porte+de+versailles&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%48.8307,2.2870&key=AIzaSyCVPO8HNf5UOACtEdZkTGReTsFzw1uwKqk" width="300px" height="300" />
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg">Sell Product</button>
+            </form>
+        </div>
+
+        <div ng-if="!ctrl.isLoading && ctrl.itemAdded">
+            <p>Your Item has been added</p>
+        </div>
+    </div>
+</body>
+
+</html>

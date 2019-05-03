@@ -1,0 +1,44 @@
+{
+  "name": "webpack-base",
+  "version": "1.0.0",
+  "description": "A starting pack for webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --watch",
+    "build": "webpack -p"
+  },
+  "author": "Sophie Vanderveken",
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "^1.5.11",
+    "autoprefixer": "^7.1.3",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "handlebars": "^4.0.10",
+    "handlebars-loader": "^1.6.0",
+    "handlebars-template-loader": "^0.8.0",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
+    "node-sass": "^4.5.3",
+    "normalize.css": "^7.0.0",
+    "postcss-loader": "^2.0.6",
+    "resolve-url-loader": "^2.1.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "transform-runtime": "0.0.0",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "instascan": "^1.0.0"
+  }
+}
